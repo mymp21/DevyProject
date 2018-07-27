@@ -9,7 +9,13 @@ namespace AdminApps
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/assets/js/core/jquery.min.js",
+                        "~/assets/js/core/popper.min.js",
+                        "~/assets/js/plugins/perfect-scrollbar.jquery.min.js",
+                        "~/assets/js/plugins/chartist.min.js",
+                        "~/assets/js/material-dashboard.min.js?v=2.1.0",
+                        "~/assets/demo/demo.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -20,11 +26,27 @@ namespace AdminApps
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                    "~/assets/js/core/bootstrap-material-design.min.js",
+                      "~/assets/js/plugins/bootstrap-notify.js"
+                      ));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                  "~/Scripts/angular.js",
+                    "~/Scripts/angular-route.js",
+                       "~/Scripts/angular-ui-router.js",
+                "~/Apps/js/app.js",
+             "~/Apps/js/app.config.js",
+                "~/Apps/js/admin/adminroute.js",
+              "~/Apps/js/admin/adminservice.js",
+                "~/Apps/js/admin/admincontroller.js",
+                 "~/Apps/js/petugas/petugasroute.js",
+              "~/Apps/js/petugas/petugasservice.js",
+                "~/Apps/js/petugas/petugascontroller.js"
+                ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/assets/css/material-dashboard.css",
+                      "~/assets/demo/demo.css"));
         }
     }
 }

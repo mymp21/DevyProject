@@ -13,6 +13,19 @@ namespace AdminApps.Controllers
             return View();
         }
 
+        [Authorize(Roles ="Admin")]
+        public ActionResult Admin()
+        {
+            return View();
+        }
+
+
+        [Authorize(Roles = "Petugas")]
+        public ActionResult Petugas()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -79,6 +79,16 @@ namespace AdminApps.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+
+                    var user = UserManager.FindByEmail(model.Email);
+                    if(user!=null)
+                    {
+                        if (UserManager.IsInRole(user.Id,"Admin"))
+                            return RedirectToLocal("/Home/Admin");
+                        else if(UserManager.IsInRole(user.Id,"Petugas"))
+                            return RedirectToLocal("/Home/Petugas");
+                    }
+
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -159,9 +169,9 @@ namespace AdminApps.Controllers
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    // string code = await usermanager.generateemailconfirmationtokenasync(user.id);
+                    // var callbackurl = url.action("confirmemail", "account", new { userid = user.id, code = code }, protocol: request.url.scheme);
+                    // await usermanager.sendemailasync(user.id, "confirm your account", "please confirm your account by clicking <a href=\"" + callbackurl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
                 }
