@@ -1,22 +1,14 @@
-﻿using AdminLib;
-using AdminLib.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace SharedApp.Models
 {
-    public class PelangganModel : BaseNotify, IConvertModel<Pelanggan>
+    public class PelangganModel : BaseNotify
     {
-        public Pelanggan ConvertModel()
-        {
-            return OcphMapper.Mapper.Map<Pelanggan>(this);
-        }
-
-
+      
         public int IdPelanggan
         {
             get { return _idpelanggan; }
@@ -87,9 +79,8 @@ namespace SharedApp.Models
                 SetProperty(ref _nokontak, value);
             }
         }
-        [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
+      
+
         public string Email
         {
             get { return _email; }

@@ -12,7 +12,6 @@ namespace AndroidApp.Views
 
         public MainPage ()
 		{
-
             InitializeComponent();
             menuList = new List<MasterPageItem>();
             // Adding menu items to menuList and you can define title ,page and icon  
@@ -20,19 +19,28 @@ namespace AndroidApp.Views
             {
                 Title = "Home",
                 Icon = "homeicon.png",
-                TargetType = typeof(AboutPage)
+                TargetType = typeof(Home)
             });
+
+
             menuList.Add(new MasterPageItem()
             {
-                Title = "Contact",
+                Title = "Pengaduan",
                 Icon = "contacticon.png",
-                TargetType = typeof(ItemsPage)
+                TargetType = typeof(Pengaduan)
             });
-           
+
+            menuList.Add(new MasterPageItem()
+            {
+                Title = "About",
+                Icon = "homeicon.png",
+                TargetType = typeof(AboutPage)
+            });
+
             // Setting our list to be ItemSource for ListView in MainPage.xaml  
             navigationDrawerList.ItemsSource = menuList;
             // Initial navigation, this can be used for our home page  
-            Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(AboutPage)));
+            Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(Home)));
 
         }
 
