@@ -2,32 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text;
 
-using Xamarin.Forms;
-
-using AndroidApp.Models;
-using AndroidApp.Services;
-using SharedApp.Models;
-
-namespace AndroidApp.ViewModels
+namespace AndroidApp
 {
-    public class BaseViewModel : INotifyPropertyChanged
+  public  class BaseNotify: INotifyPropertyChanged
     {
-        public static IDataStore<PemasanganModel> PemasanganDataStore => DependencyService.Get<IDataStore<PemasanganModel>>() ?? new PemasanganDataStore();
-
-        bool isBusy = false;
-        public bool IsBusy
-        {
-            get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
-        }
-
-        string title = string.Empty;
-        public string Title
-        {
-            get { return title; }
-            set { SetProperty(ref title, value); }
-        }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName]string propertyName = "",
