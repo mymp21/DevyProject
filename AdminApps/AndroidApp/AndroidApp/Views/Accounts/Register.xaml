@@ -62,8 +62,8 @@
 
                 <Button Text="Login" Command="{Binding LoginCommand}"/>
                 <StackLayout Orientation="Vertical" HorizontalOptions="End">
-                    <Label Text="Have  Account ?"/>
-                    <Label Text="Register Here">
+                    <Label Text="Have Account?"/>
+                    <Label Text="Login Here">
                         <Label.GestureRecognizers>
                             <ClickGestureRecognizer Command="{Binding RegisterCommand}"/>
                         </Label.GestureRecognizers>
